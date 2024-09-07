@@ -9,12 +9,12 @@ import { catchError, Observable, of, tap } from "rxjs";
 
     private readonly http = inject(HttpClient);
     private readonly path = "/api/products";
-    
+
     private readonly _products = signal<Product[]>([]);
 
     public readonly products = this._products.asReadonly();
 
-    public get(): Observable<Product[]> {
+    public getAll(): Observable<Product[]> {
         return this.http.get<Product[]>(this.path).pipe(
             catchError((error) => {
                 return this.http.get<Product[]>("assets/products.json");

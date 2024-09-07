@@ -4,8 +4,7 @@ import { ProductListComponent } from "./features/product-list/product-list.compo
 
 export const PRODUCTS_ROUTES: Routes = [
 	{
-		path: "list",
+		path: "",
 		component: ProductListComponent,
 	},
-	{ path: "**", redirectTo: "list" },
 ];
