@@ -8,13 +8,22 @@ import { PanelMenuComponent } from "./ui/panel-menu/panel-menu.component";
 import { BadgeModule } from 'primeng/badge';
 import { ButtonModule } from "primeng/button";
 import { CartService } from "./services/cart.service";
+import { ToastModule } from "primeng/toast";
 
 @Component({
     selector: "app-root",
     templateUrl: "./app.component.html",
     styleUrls: ["./app.component.scss"],
     standalone: true,
-    imports: [RouterModule, SplitterModule, ToolbarModule, PanelMenuComponent, BadgeModule, ButtonModule],
+    imports: [
+        RouterModule,
+        SplitterModule,
+        ToolbarModule,
+        PanelMenuComponent,
+        BadgeModule,
+        ButtonModule,
+        ToastModule,
+    ],
 })
 export class AppComponent {
     title = "ALTEN SHOP";

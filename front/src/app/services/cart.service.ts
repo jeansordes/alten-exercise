@@ -14,6 +14,9 @@ export class CartService {
 
     public readonly cart = this._cart.asReadonly();
     public readonly cartSize = computed(() => this._cart().length);
+    public readonly cartTotalPrice = computed(() => {
+        return this._cart().reduce((acc, product) => acc + product.price, 0);
+    });
 
     constructor() { }
 

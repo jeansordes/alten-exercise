@@ -1,10 +1,11 @@
 import { CommonModule } from "@angular/common";
-import { Component, OnInit, inject, signal } from "@angular/core";
+import { Component, OnInit, signal } from "@angular/core";
 import { ProductFormComponent } from "app/routes/products/product-form/product-form.component";
 import { CartService } from "app/services/cart.service";
 import { Product } from "app/services/product.model";
 import { ProductsService } from "app/services/products.service";
 import { ImgWTxtOverComponent } from "app/ui/img-w-txt-over/img-w-txt-over.component";
+import { MessageService } from "primeng/api";
 import { ButtonModule } from "primeng/button";
 import { CardModule } from "primeng/card";
 import { DataViewModule } from 'primeng/dataview';
@@ -32,17 +33,28 @@ const emptyProduct: Product = {
     templateUrl: "./product-list.component.html",
     styleUrls: ["./product-list.component.scss"],
     standalone: true,
-    imports: [DataViewModule, CardModule, ButtonModule, DialogModule, ProductFormComponent, CommonModule, ImgWTxtOverComponent],
+    imports: [
+        DataViewModule,
+        CardModule,
+        ButtonModule,
+        DialogModule,
+        ProductFormComponent,
+        CommonModule,
+        ImgWTxtOverComponent,
+    ],
 })
 export class ProductListComponent implements OnInit {
-    private readonly productsService = inject(ProductsService);
-    private readonly cartService = inject(CartService);
-
     public readonly products = this.productsService.products;
 
     public isDialogVisible = false;
     public isCreation = false;
     public readonly editedProduct = signal<Product>(emptyProduct);
+
+    constructor(
+        private readonly productsService: ProductsService,
+        private readonly cartService: CartService,
+        private readonly messageService: MessageService,
+    ) { } // empty constructor
 
     ngOnInit() {
         this.productsService.getAll().subscribe();
@@ -51,9 +63,13 @@ export class ProductListComponent implements OnInit {
     public onCartAddition(product: Product) {
         this.cartService.addToCart(product);
 
-        console.log(this.cartService.getCart());
         // then, show a notification so that the user knows the product has been added
-        // and update the cart size
+        this.messageService.add({
+            summary: "Ajouté au panier !",
+            detail: "Produit ajouté au panier avec succès",
+            icon: "pi pi-shopping-cart",
+            severity: "success"
+        });
     }
 
     public onCreate() {

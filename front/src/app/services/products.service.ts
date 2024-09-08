@@ -14,6 +14,10 @@ import { catchError, Observable, of, tap } from "rxjs";
 
     public readonly products = this._products.asReadonly();
 
+    public get(id: number): Product | undefined {
+        return this.products().find(product => product.id === id);
+    }
+
     public getAll(): Observable<Product[]> {
         return this.http.get<Product[]>(this.path).pipe(
             catchError((error) => {

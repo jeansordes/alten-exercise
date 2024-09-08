@@ -16,9 +16,9 @@ Le site de e-commerce d'Alten a besoin de s'enrichir de nouvelles fonctionnalit√
 
 - [x] #1 Afficher toutes les informations pertinentes d'un produit sur la liste
 - [x] #2 Permettre d'ajouter un produit au panier depuis la liste 
-- [ ] #3 Permettre de supprimer un produit du panier
+- [x] #3 Permettre de supprimer un produit du panier
 - [x] #4 Afficher un badge indiquant la quantit√© de produits dans le panier
-- [ ] #5 Permettre de visualiser la liste des produits qui composent le panier.
+- [x] #5 Permettre de visualiser la liste des produits qui composent le panier.
 
 ### Partie 2
 
