@@ -14,24 +14,24 @@ Le site de e-commerce d'Alten a besoin de s'enrichir de nouvelles fonctionnalit�
 
 ### Partie 1 : Shop
 
-- Afficher toutes les informations pertinentes d'un produit sur la liste
-- Permettre d'ajouter un produit au panier depuis la liste 
-- Permettre de supprimer un produit du panier
-- Afficher un badge indiquant la quantité de produits dans le panier
-- Permettre de visualiser la liste des produits qui composent le panier.
+- [x] #1 Afficher toutes les informations pertinentes d'un produit sur la liste
+- [x] #2 Permettre d'ajouter un produit au panier depuis la liste 
+- [ ] #3 Permettre de supprimer un produit du panier
+- [x] #4 Afficher un badge indiquant la quantité de produits dans le panier
+- [ ] #5 Permettre de visualiser la liste des produits qui composent le panier.
 
 ### Partie 2
 
-- Créer un nouveau point de menu dans la barre latérale ("Contact")
-- Créer une page "Contact" affichant un formulaire
-- Le formulaire doit permettre de saisir son email, un message et de cliquer sur "Envoyer"
-- Email et message doivent être obligatoirement remplis, message doit être inférieur à 300 caractères.
-- Quand le message a été envoyé, afficher un message à l'utilisateur : "Demande de contact envoyée avec succès".
+- [ ] #6 Créer un nouveau point de menu dans la barre latérale ("Contact")
+- [ ] #7 Créer une page "Contact" affichant un formulaire
+- [ ] #8 Le formulaire doit permettre de saisir son email, un message et de cliquer sur "Envoyer"
+- [ ] #9 Email et message doivent être obligatoirement remplis, message doit être inférieur à 300 caractères.
+- [ ] #10 Quand le message a été envoyé, afficher un message à l'utilisateur : "Demande de contact envoyée avec succès".
 
 ### Bonus : 
 
-- Ajouter un système de pagination et/ou de filtrage sur la liste des produits
-- On doit pouvoir visualiser et ajuster la quantité des produits depuis la liste et depuis le panier 
+- [ ] #11 Ajouter un système de pagination et/ou de filtrage sur la liste des produits
+- [ ] #12 On doit pouvoir visualiser et ajuster la quantité des produits depuis la liste et depuis le panier 
 
 ## Back-end
 
@@ -74,6 +74,17 @@ class Product {
 
 Le back-end créé doit pouvoir gérer les produits dans une base de données SQL/NoSQL ou dans un fichier json.
 
+- [ ] #13 /products GET
+- [ ] #14 /products POST
+- [ ] #15 /products PATCH
+- [ ] #16 /products PUT
+- [ ] #17 /products DELETE
+- [ ] #18 /products/:id GET
+- [ ] #19 /products/:id POST
+- [ ] #20 /products/:id PATCH
+- [ ] #21 /products/:id PUT
+- [ ] #22 /products/:id DELETE
+
 ## Bonus
 
-Vous pouvez ajouter des tests Postman ou Swagger pour valider votre API
+- [ ] #23 Vous pouvez ajouter des tests Postman ou Swagger pour valider votre API

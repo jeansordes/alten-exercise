@@ -5,11 +5,11 @@
 <p-dataView #dv [value]="products()">
     <ng-template pTemplate="list" let-products>
 
-        <div class="grid -mt-3 -ml-3 -mr-3">
+        <div class="grid -mt-3 -mx-2">
             @for (product of products; track product.id) {
-            <p-card class="col-12 md:col-6 lg:col-4 surface-card">
+            <p-card class="col-12 md:col-6 xl:col-4 surface-card">
                 <div class="flex gap-3">
-                    <img src="assets/sample-img.png" alt="Sample image" class="w-6rem h-6rem flex-shrink-0">
+                    <app-img-w-txt-over class="w-6rem" imageUrl="/assets/sample-img.png" overlayText="{{ product.image }}" />
                     <div class="flex flex-column gap-2">
                         <div class="text-900 font-medium text-xl">{{ product.name }}</div>
                         <div class="flex flex-grow-1 gap-1 text-sm">
@@ -19,9 +19,6 @@
                         <div class="flex gap-1 text-sm">
                             <i class="pi pi-star-fill text-yellow-500"></i>
                             <span class="text-gray-500">Note moyenne : {{ product.rating }} / 10</span>
-                        </div>
-
-                        <div class="text-sm text-secondary my-2">{{ product.description }}
                         </div>
 
                         <div class="flex gap-2">
@@ -45,7 +42,7 @@
 
                 <ng-template pTemplate="footer">
                     <div class="flex flex-wrap gap-3">
-                        <p-button label="Add to Cart" severity="primary" icon="pi pi-shopping-cart" outlined="true" />
+                        <p-button label="Add to Cart" severity="primary" (onClick)="onCartAddition(product)" icon="pi pi-shopping-cart" outlined="true" />
                         <p-button label="Modifier" severity="secondary" (onClick)="onUpdate(product)" outlined="true" />
                         <p-button label="Supprimer" severity="danger" (onClick)="onDelete(product)" outlined="true" />
                     </div>

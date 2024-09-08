@@ -1,8 +1,10 @@
 import { CommonModule } from "@angular/common";
 import { Component, OnInit, inject, signal } from "@angular/core";
-import { Product } from "app/products/data-access/product.model";
-import { ProductsService } from "app/products/data-access/products.service";
-import { ProductFormComponent } from "app/products/ui/product-form/product-form.component";
+import { ProductFormComponent } from "app/routes/products/product-form/product-form.component";
+import { CartService } from "app/services/cart.service";
+import { Product } from "app/services/product.model";
+import { ProductsService } from "app/services/products.service";
+import { ImgWTxtOverComponent } from "app/ui/img-w-txt-over/img-w-txt-over.component";
 import { ButtonModule } from "primeng/button";
 import { CardModule } from "primeng/card";
 import { DataViewModule } from 'primeng/dataview';
@@ -30,10 +32,11 @@ const emptyProduct: Product = {
     templateUrl: "./product-list.component.html",
     styleUrls: ["./product-list.component.scss"],
     standalone: true,
-    imports: [DataViewModule, CardModule, ButtonModule, DialogModule, ProductFormComponent, CommonModule],
+    imports: [DataViewModule, CardModule, ButtonModule, DialogModule, ProductFormComponent, CommonModule, ImgWTxtOverComponent],
 })
 export class ProductListComponent implements OnInit {
     private readonly productsService = inject(ProductsService);
+    private readonly cartService = inject(CartService);
 
     public readonly products = this.productsService.products;
 
@@ -43,6 +46,14 @@ export class ProductListComponent implements OnInit {
 
     ngOnInit() {
         this.productsService.getAll().subscribe();
+    }
+
+    public onCartAddition(product: Product) {
+        this.cartService.addToCart(product);
+
+        console.log(this.cartService.getCart());
+        // then, show a notification so that the user knows the product has been added
+        // and update the cart size
     }
 
     public onCreate() {

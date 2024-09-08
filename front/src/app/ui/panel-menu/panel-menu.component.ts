@@ -1,9 +1,9 @@
 import {
     Component,
-  } from "@angular/core";
+} from "@angular/core";
 import { MenuItem } from "primeng/api";
-  import { PanelMenuModule } from 'primeng/panelmenu';
-  
+import { PanelMenuModule } from 'primeng/panelmenu';
+
   @Component({
     selector: "app-panel-menu",
     standalone: true,
@@ -22,8 +22,13 @@ import { MenuItem } from "primeng/api";
         },
         {
             label: 'Produits',
-            icon: 'pi pi-barcode',
+            icon: 'pi pi-th-large',
             routerLink: ['/products']
+        },
+        {
+            label: 'Panier',
+            icon: 'pi pi-shopping-cart',
+            routerLink: ['/cart']
         }
     ]
   }
