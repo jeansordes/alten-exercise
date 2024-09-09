@@ -29,7 +29,12 @@ import { PanelMenuModule } from 'primeng/panelmenu';
             label: 'Panier',
             icon: 'pi pi-shopping-cart',
             routerLink: ['/cart']
-        }
+        },
+        {
+            label: 'Contact',
+            icon: 'pi pi-envelope',
+            routerLink: ['/contact']
+        },
     ]
   }
   
