@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Product } from 'app/services/product.model';
 
 @Component({
     selector: 'app-img-w-txt-over',
@@ -9,5 +10,5 @@ import { Component, Input } from '@angular/core';
 })
 export class ImgWTxtOverComponent {
     @Input() imageUrl: string = '/assets/sample-img.png'; // default image
-    @Input() overlayText: string = 'assets/sample-img.png';
+    @Input() productInput!: Product;
 }

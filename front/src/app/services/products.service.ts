@@ -1,14 +1,14 @@
 import { Injectable, inject, signal } from "@angular/core";
 import { Product } from "./product.model";
 import { HttpClient } from "@angular/common/http";
-import { catchError, Observable, of, tap } from "rxjs";
+import { catchError, map, Observable, of, tap } from "rxjs";
 
 @Injectable({
     providedIn: "root"
 }) export class ProductsService {
 
     private readonly http = inject(HttpClient);
-    private readonly path = "/api/products";
+    private readonly path = "http://localhost:3000/api/products";
 
     private readonly _products = signal<Product[]>([]);
 
@@ -27,12 +27,17 @@ import { catchError, Observable, of, tap } from "rxjs";
         );
     }
 
-    public create(product: Product): Observable<boolean> {
-        return this.http.post<boolean>(this.path, product).pipe(
+    public create(product: Product): Observable<number | undefined> {
+        return this.http.post<{id: number}>(this.path, product).pipe(
             catchError(() => {
-                return of(true);
+                return of(undefined);
             }),
-            tap(() => this._products.update(products => [product, ...products])),
+            map((result) => result?.id),
+            tap((id) => {
+                if (id !== undefined) {
+                    this._products.update(products => [...products, { ...product, id }]);
+                }
+            }),
         );
     }
 

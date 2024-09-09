@@ -8,7 +8,7 @@
             @for (product of products; track product.id) {
             <p-card class="col-12 md:col-6 surface-card p-3">
                 <div class="flex gap-3">
-                    <app-img-w-txt-over class="w-6rem" imageUrl="/assets/sample-img.png" overlayText="{{ product.image }}" />
+                    <app-img-w-txt-over class="w-8rem" [productInput]="product" />
                     <div class="flex flex-column gap-2">
                         <div class="text-900 font-medium text-xl">{{ product.name }}</div>
                         <div class="flex flex-grow-1 gap-2">
@@ -41,7 +41,8 @@
 
                 <ng-template pTemplate="footer">
                     <div class="flex flex-wrap gap-3">
-                        <p-button label="Add to Cart" severity="primary" (onClick)="onCartAddition(product)" icon="pi pi-shopping-cart" outlined="true" />
+                        <p-button label="Add to Cart" severity="primary" (onClick)="onCartAddition(product)"
+                            icon="pi pi-shopping-cart" outlined="true" />
                         <p-button label="Modifier" severity="secondary" (onClick)="onUpdate(product)" outlined="true" />
                         <p-button label="Supprimer" severity="danger" (onClick)="onDelete(product)" outlined="true" />
                     </div>

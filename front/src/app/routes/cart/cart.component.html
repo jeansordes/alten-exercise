@@ -10,7 +10,7 @@
     <ul class="list-none p-0 m-0">
         @for (product of cart(); track $index) {
         <li class="flex flex-column gap-6 md:flex-row py-6 border-bottom-2 border-200 md:align-items-start">
-            <app-img-w-txt-over class="w-12rem" imageUrl="/assets/sample-img.png" overlayText="{{ product.image }}" />
+            <app-img-w-txt-over class="w-12rem" [productInput]="product" />
             <div class="flex-auto">
                 <div
                     class="flex flex-wrap align-items-start sm:align-items-start sm:flex-row sm:justify-content-between surface-border pb-6">
