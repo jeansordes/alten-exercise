@@ -14,8 +14,7 @@ import { DropdownModule } from 'primeng/dropdown';
         CommonModule,
         ButtonModule,
     ],
-    templateUrl: './cart.component.html',
-    styleUrl: './cart.component.scss'
+    templateUrl: './cart.component.html'
 })
 export class CartComponent {
     public cart = this.cartService.cart;

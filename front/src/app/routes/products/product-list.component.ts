@@ -31,7 +31,6 @@ const emptyProduct: Product = {
 @Component({
     selector: "app-product-list",
     templateUrl: "./product-list.component.html",
-    styleUrls: ["./product-list.component.scss"],
     standalone: true,
     imports: [
         DataViewModule,

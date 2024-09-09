@@ -6,7 +6,6 @@ import { CardModule } from "primeng/card";
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.scss"],
   standalone: true,
   imports: [CardModule, RouterLink, ButtonModule],
 })

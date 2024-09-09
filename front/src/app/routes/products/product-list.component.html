@@ -1,58 +1,67 @@
-<h1 class="text-center">Liste des produits</h1>
+<div class="surface-section px-4 py-6 md:px-6 lg:px-8">
+    <div class="border-left-2 border-blue-500 mb-4">
+        <span class="bg-white text-blue-500 font-bold text-2xl inline-block px-3">
+            <i class="pi pi-th-large text-2xl"></i>
+            <span class="font-bold ml-3 text-4xl text-900 ">Liste des produits</span>
+        </span>
+    </div>
 
-<p-button label="Créer produit" (onClick)="onCreate()" class="block text-center mb-4" />
+    <p-button label="Créer produit" (onClick)="onCreate()" class="block mb-2" icon="pi pi-box" />
 
-<p-dataView #dv [value]="products()">
-    <ng-template pTemplate="list" let-products>
-        <div class="grid mx-4">
-            @for (product of products; track product.id) {
-            <p-card class="col-12 md:col-6 surface-card p-3">
-                <div class="flex gap-3">
-                    <app-img-w-txt-over class="w-8rem" [productInput]="product" />
-                    <div class="flex flex-column gap-2">
-                        <div class="text-900 font-medium text-xl">{{ product.name }}</div>
-                        <div class="flex flex-grow-1 gap-2">
-                            <i class="pi pi-tag text-600"></i>
-                            <span class="text-600">Catégorie : {{ product.category }}</span>
-                        </div>
-                        <div class="flex gap-2">
-                            <i class="pi pi-star-fill text-yellow-500"></i>
-                            <span class="text-600">Note moyenne : {{ product.rating }} / 10</span>
-                        </div>
-
-                        <div class="flex gap-2">
-                            <div [ngSwitch]="product.inventoryStatus">
-                                <span *ngSwitchCase="'INSTOCK'"
-                                    class="bg-green-100 text-green-700 border-round inline-flex py-1 px-2 text-sm">En
-                                    stock</span>
-                                <span *ngSwitchCase="'LOWSTOCK'"
-                                    class="bg-orange-100 text-orange-700 border-round inline-flex py-1 px-2 text-sm">Stocks
-                                    bientôt épuisés</span>
-                                <span *ngSwitchCase="'OUTOFSTOCK'"
-                                    class="bg-pink-100 text-pink-700 border-round inline-flex py-1 px-2 text-sm">Stocks
-                                    épuisés</span>
-                                <span *ngSwitchDefault></span>
+    <p-dataView #dv [value]="products()">
+        <ng-template pTemplate="list" let-products>
+            <div class="grid -mx-5">
+                @for (product of products; track product.id) {
+                <p-card class="col-12 md:col-6 surface-card p-3">
+                    <div class="flex gap-3">
+                        <app-img-w-txt-over class="w-8rem" [productInput]="product" />
+                        <div class="flex flex-column gap-2">
+                            <div class="text-900 font-medium text-xl">{{ product.name }}</div>
+                            <div class="flex flex-grow-1 gap-2">
+                                <i class="pi pi-tag text-600"></i>
+                                <span class="text-600">Catégorie : {{ product.category }}</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <i class="pi pi-star-fill text-yellow-500"></i>
+                                <span class="text-600">Note moyenne : {{ product.rating }} / 10</span>
                             </div>
 
-                            <div class="text-xl text-primary font-bold">{{ product.price }} €</div>
+                            <div class="flex gap-2">
+                                <div [ngSwitch]="product.inventoryStatus">
+                                    <span *ngSwitchCase="'INSTOCK'"
+                                        class="bg-green-100 text-green-700 border-round inline-flex py-1 px-2 text-sm">En
+                                        stock</span>
+                                    <span *ngSwitchCase="'LOWSTOCK'"
+                                        class="bg-orange-100 text-orange-700 border-round inline-flex py-1 px-2 text-sm">Stocks
+                                        bientôt épuisés</span>
+                                    <span *ngSwitchCase="'OUTOFSTOCK'"
+                                        class="bg-pink-100 text-pink-700 border-round inline-flex py-1 px-2 text-sm">Stocks
+                                        épuisés</span>
+                                    <span *ngSwitchDefault></span>
+                                </div>
+
+                                <div class="text-xl text-primary font-bold">{{ product.price }} €</div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <ng-template pTemplate="footer">
-                    <div class="flex flex-wrap gap-3">
-                        <p-button label="Add to Cart" severity="primary" (onClick)="onCartAddition(product)"
-                            icon="pi pi-shopping-cart" outlined="true" />
-                        <p-button label="Modifier" severity="secondary" (onClick)="onUpdate(product)" outlined="true" />
-                        <p-button label="Supprimer" severity="danger" (onClick)="onDelete(product)" outlined="true" />
-                    </div>
-                </ng-template>
-            </p-card>
-            }
-        </div>
-    </ng-template>
-</p-dataView>
+                    <ng-template pTemplate="footer">
+                        <div class="flex flex-wrap gap-3">
+                            <p-button label="Add to Cart" severity="primary" (onClick)="onCartAddition(product)"
+                                icon="pi pi-shopping-cart" outlined="true" />
+                            <p-button label="Modifier" severity="secondary" (onClick)="onUpdate(product)"
+                                outlined="true" />
+                            <p-button label="Supprimer" severity="danger" (onClick)="onDelete(product)"
+                                outlined="true" />
+                        </div>
+                    </ng-template>
+                </p-card>
+                }
+            </div>
+        </ng-template>
+    </p-dataView>
 
-<p-dialog [(visible)]="isDialogVisible" [style]="{ width: '50vw' }" header="Ajout/Edition produit">
-    <app-product-form [product]="editedProduct()" (save)="onSave($event)" (cancel)="onCancel()" />
-</p-dialog>
+    <p-dialog [(visible)]="isDialogVisible" [style]="{ width: '50vw' }" header="Ajout/Edition produit">
+        <app-product-form [product]="editedProduct()" (save)="onSave($event)" (cancel)="onCancel()" />
+    </p-dialog>
+</div>

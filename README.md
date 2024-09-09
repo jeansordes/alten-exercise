@@ -1,21 +1,31 @@
 # Getting started
+## Contexte
+Ce projet est un exercice réalisé par Jean Sordes, en 3 jours de travail, dans le cadre d'un test technique pour l'entreprise Alten.
+
+Le front a nécessité 2,5 jours de travail, le back 0,5 jours de travail
+
+## Stack technique
+C'est une application constitué d'un front en [Angular](https://angular.dev/) + [PrimeNG](https://primeng.org/) (Librairie CSS), et d'un back réalisé en NodeJS + SQLite
+
+## Installation
 1. Clonez le projet sur votre machine
 2. Installer les dépendances (`npm i`)
 3. Lancez le back, puis le front (`npm start` dans les deux cas)
 
-# Consignes
+![Page produits](./documentation/app-products-screenshot.png)
+![Page panier](./documentation/app-cart-screenshot.png)
+![API Tests in Insomnia](./documentation/api-tests-insomnia-screenshot.png)
 
-- Vous êtes développeur front-end : vous devez réaliser les consignes décrites dans le chapitre [Front-end](#Front-end)
+# Consignes reçues
 
-- Vous êtes développeur back-end : vous devez réaliser les consignes décrites dans le chapitre [Back-end](#Back-end) (*)
-
-- Vous êtes développeur full-stack : vous devez réaliser les consignes décrites dans le chapitre [Front-end](#Front-end) et le chapitre [Back-end](#Back-end) (*)
-
-(*) Afin de tester votre API, veuillez proposer une stratégie de test appropriée.
+> - Vous êtes développeur front-end : vous devez réaliser les consignes décrites dans le chapitre [Front-end](#Front-end)
+> - Vous êtes développeur back-end : vous devez réaliser les consignes décrites dans le chapitre [Back-end](#Back-end) (*)
+> - Vous êtes développeur full-stack : vous devez réaliser les consignes décrites dans le chapitre [Front-end](#Front-end) et le chapitre [Back-end](#Back-end) (*)
+> (*) Afin de tester votre API, veuillez proposer une stratégie de test appropriée.
 
 ## Front-end
 
-Le site de e-commerce d'Alten a besoin de s'enrichir de nouvelles fonctionnalités.
+> Le site de e-commerce d'Alten a besoin de s'enrichir de nouvelles fonctionnalités.
 
 ### Partie 1 : Shop
 
@@ -40,43 +50,43 @@ Le site de e-commerce d'Alten a besoin de s'enrichir de nouvelles fonctionnalit�
 
 ## Back-end
 
-Développer un back-end permettant la gestion de produits définis plus bas.
-Vous pouvez utiliser la technologie de votre choix parmi la liste suivante :
-
-- **Node.js/Express (c'est cette option qui a été choisie)**
-- Java/Spring Boot
-- C#/.net Core
-- PHP/Symphony
-
-Le back-end doit gérer les API suivantes : 
-
-| Resource           | POST                  | GET                            | PATCH                                    | PUT | DELETE           |
-| ------------------ | --------------------- | ------------------------------ | ---------------------------------------- | --- | ---------------- |
-| **/products**      | Create a new product  | Retrieve all products          | X                                        | X   |     X            |
-| **/products/:id**  | X                     | Retrieve details for product 1 | Update details of product 1 if it exists | X   | Remove product 1 |
-
-Un produit a les caractéristiques suivantes : 
-
-``` typescript
-class Product {
-  id: number;
-  code: string;
-  name: string;
-  description: string;
-  image: string;
-  category: string;
-  price: number;
-  quantity: number;
-  internalReference: string;
-  shellId: number;
-  inventoryStatus: "INSTOCK" | "LOWSTOCK" | "OUTOFSTOCK";
-  rating: number;
-  createdAt: number;
-  updatedAt: number;
-}
-```
-
-Le back-end créé doit pouvoir gérer les produits dans une base de données SQL/NoSQL ou dans un fichier json.
+> Développer un back-end permettant la gestion de produits définis plus bas.
+> Vous pouvez utiliser la technologie de votre choix parmi la liste suivante :
+>
+> - **Node.js/Express (c'est cette option qui a été choisie)**
+> - Java/Spring Boot
+> - C#/.net Core
+> - PHP/Symphony
+>
+> Le back-end doit gérer les API suivantes : 
+> 
+> | Resource           | POST                  | GET                            | PATCH                                    | PUT | DELETE           |
+> | ------------------ | --------------------- | ------------------------------ | ---------------------------------------- | --- | ---------------- |
+> | **/products**      | Create a new product  | Retrieve all products          | X                                        | X   |     X            |
+> | **/products/:id**  | X                     | Retrieve details for product 1 | Update details of product 1 if it exists | X   | Remove product 1 |
+> 
+> Un produit a les caractéristiques suivantes : 
+>
+> ``` typescript
+> class Product {
+>   id: number;
+>   code: string;
+>   name: string;
+>   description: string;
+>   image: string;
+>   category: string;
+>   price: number;
+>   quantity: number;
+>   internalReference: string;
+>   shellId: number;
+>   inventoryStatus: "INSTOCK" | "LOWSTOCK" | "OUTOFSTOCK";
+>   rating: number;
+>   createdAt: number;
+>   updatedAt: number;
+> }
+> ```
+>
+> Le back-end créé doit pouvoir gérer les produits dans une base de données SQL/NoSQL ou dans un fichier json.
 
 - [x] [Issue #13](https://github.com/jeansordes/alten-exercise/issues/13) /products GET
 - [x] [Issue #14](https://github.com/jeansordes/alten-exercise/issues/14) /products POST
@@ -84,16 +94,7 @@ Le back-end créé doit pouvoir gérer les produits dans une base de données SQ
 - [x] [Issue #20](https://github.com/jeansordes/alten-exercise/issues/20) /products/:id PATCH
 - [x] [Issue #22](https://github.com/jeansordes/alten-exercise/issues/22) /products/:id DELETE
 
-Cancelled :
-- [-] [Issue #15](https://github.com/jeansordes/alten-exercise/issues/15) /products PATCH
-- [-] [Issue #16](https://github.com/jeansordes/alten-exercise/issues/16) /products PUT
-- [-] [Issue #17](https://github.com/jeansordes/alten-exercise/issues/17) /products DELETE
-- [-] [Issue #19](https://github.com/jeansordes/alten-exercise/issues/19) /products/:id POST
-- [-] [Issue #21](https://github.com/jeansordes/alten-exercise/issues/21) /products/:id PUT
-
 ## Bonus
 
 - [x] [Issue #23](https://github.com/jeansordes/alten-exercise/issues/23) Vous pouvez ajouter des tests Postman ou Swagger pour valider votre API
     - Remarque : Dans ce projet, j'ai fais mes tests en utilisant Insomnia (Alternative à Postman, [disponible ici](https://insomnia.rest/download)) [Voir la documentation de Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-from-insomnia/) pour importer le fichier `api-tests.insomnia.json` dans Postman
-
-![API Tests in Insomnia](./documentation/api-tests-insomnia-screenshot.png)

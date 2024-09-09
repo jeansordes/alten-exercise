@@ -12,8 +12,7 @@ import { MessageService } from 'primeng/api';
         ReactiveFormsModule,
         NgIf,
     ],
-    templateUrl: './contact.component.html',
-    styleUrl: './contact.component.scss'
+    templateUrl: './contact.component.html'
 })
 export class ContactComponent {
     public messageSignal = signal<string>('');
