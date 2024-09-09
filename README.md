@@ -38,11 +38,10 @@ Le site de e-commerce d'Alten a besoin de s'enrichir de nouvelles fonctionnalit�
 Développer un back-end permettant la gestion de produits définis plus bas.
 Vous pouvez utiliser la technologie de votre choix parmi la liste suivante :
 
-- Node.js/Express
+- **Node.js/Express (c'est cette option qui a été choisie)**
 - Java/Spring Boot
 - C#/.net Core
 - PHP/Symphony
-
 
 Le back-end doit gérer les API suivantes : 
 
@@ -89,4 +88,7 @@ Cancelled :
 
 ## Bonus
 
-- [ ] [Issue #23](https://github.com/jeansordes/alten-exercise/issues/23) Vous pouvez ajouter des tests Postman ou Swagger pour valider votre API
+- [x] [Issue #23](https://github.com/jeansordes/alten-exercise/issues/23) Vous pouvez ajouter des tests Postman ou Swagger pour valider votre API
+    - Remarque : Dans ce projet, j'ai fais mes tests en utilisant Insomnia (Alternative à Postman, [disponible ici](https://insomnia.rest/download)) [Voir la documentation de Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-from-insomnia/) pour importer le fichier `api-tests.insomnia.json` dans Postman
+
+![API Tests in Insomnia](./documentation/api-tests-insomnia-screenshot.png)
