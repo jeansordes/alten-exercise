@@ -1,3 +1,8 @@
+# Getting started
+1. Clonez le projet sur votre machine
+2. Installer les dépendances (`npm i`)
+3. Lancez le back, puis le front (`npm start` dans les deux cas)
+
 # Consignes
 
 - Vous êtes développeur front-end : vous devez réaliser les consignes décrites dans le chapitre [Front-end](#Front-end)
